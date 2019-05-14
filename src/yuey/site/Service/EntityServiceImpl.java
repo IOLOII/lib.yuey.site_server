@@ -10,7 +10,7 @@ import yuey.site.Dao.Entity;
 import yuey.site.Dao.EntityDao;
 
 @Service("entityService")
-public class EntityServiceImpl implements EntityService {
+public class EntityServiceImpl  implements EntityService {
 	@Autowired
 	private EntityDao entityDao;
 

@@ -26,13 +26,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import yuey.site.Dao.Entity;
 import yuey.site.Service.EntityService;
+import yuey.site.Service.MenuService;
+import yuey.site.Service.MenuServiceImpl;
 
 @Controller
 // @RequestMapping("getC")
 public class JobIndexController {
 	@Autowired
 	private EntityService entityService;
-
+	@Autowired
+	private MenuServiceImpl menuService;
+	/**
+	 * 获取兼职信息条目
+	 * @param request	getC.site
+	 * @param response	entity实例
+	 * @throws IOException
+	 */
 	@RequestMapping("/getC")
 	public void getConn(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
@@ -42,10 +51,9 @@ public class JobIndexController {
 		Map<String, Object> req = new HashMap<String, Object>();
 		req.put("请求rul", request.getReader());
 		req.put("ip", request.getLocalAddr());
-
 		JSONArray entity = new JSONArray();
 		entity = entityService.testtoString();
-
+		menuService.selectList(123);
 		System.out.println(req + "sql Success!");
 		// System.out.println(entity.toString());
 		PrintWriter pw = response.getWriter();
@@ -54,7 +62,12 @@ public class JobIndexController {
 		pw.write(entity.toString());
 		// return entity;
 	}
-	
+	/**
+	 * 增加兼职 5_14
+	 * @param request	pubUnit,pubContent,salary,pubTime,timeLiness
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping(value = "/addJob")
 	public void addJobLIst2(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {

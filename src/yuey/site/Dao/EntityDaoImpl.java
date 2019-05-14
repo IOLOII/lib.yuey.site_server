@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
  * @author yuey
  * 
  */
-@Repository("entityDao")
+//@Repository("entityDao")
 public class EntityDaoImpl extends JdbcDaoSupport implements EntityDao {
 	class EntityRowMapper implements RowMapper<Entity> {
 		public Entity mapRow(ResultSet rs, int rowNum) throws SQLException {
