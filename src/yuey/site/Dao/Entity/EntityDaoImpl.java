@@ -1,4 +1,4 @@
-package yuey.site.Dao;
+package yuey.site.Dao.Entity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
  * @author yuey
  * 
  */
-//@Repository("entityDao")
+//@Repository("entityDao")/*因为这个多的注解，错误*/
 public class EntityDaoImpl extends JdbcDaoSupport implements EntityDao {
 	class EntityRowMapper implements RowMapper<Entity> {
 		public Entity mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -37,7 +37,7 @@ public class EntityDaoImpl extends JdbcDaoSupport implements EntityDao {
 	}
 
 	public JSONArray testtoString() {
-		List<Entity> entity = null;
+		List<Entity> entitys = null;
 		JSONArray json = new JSONArray();
 		String sql = "select * from parttimejob order by`pubTime` DESC ";/*
 																	 * order by
@@ -47,12 +47,12 @@ public class EntityDaoImpl extends JdbcDaoSupport implements EntityDao {
 																	 */
 		try {
 			// TODO Auto-generated method stub
-			entity = this.getJdbcTemplate().query(sql, new EntityRowMapper());
+			entitys = this.getJdbcTemplate().query(sql, new EntityRowMapper());
 			// System.out.println("sql success"+"\n"+entity);
 			/*
 			 * 集合转json JsonObject 对象放入的是键值对 JsonArray 放入的是一个值
 			 */
-			for (Entity et : entity) {
+			for (Entity et : entitys) {
 				JSONObject ijo = new JSONObject();
 				// ijo.put("发布单位", et.getPubUnit());
 				// ijo.put("发布时间", et.getPubTime());

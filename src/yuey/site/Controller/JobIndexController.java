@@ -24,18 +24,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import yuey.site.Dao.Entity;
-import yuey.site.Service.EntityService;
-import yuey.site.Service.MenuService;
-import yuey.site.Service.MenuServiceImpl;
+import yuey.site.Dao.Entity.Entity;
+import yuey.site.Service.Entity.EntityService;
+import yuey.site.Service.Menu.MenuService;
+import yuey.site.Service.Menu.MenuServiceImpl;
 
 @Controller
 // @RequestMapping("getC")
 public class JobIndexController {
 	@Autowired
 	private EntityService entityService;
-	@Autowired
-	private MenuServiceImpl menuService;
+
 	/**
 	 * 获取兼职信息条目
 	 * @param request	getC.site
@@ -53,7 +52,7 @@ public class JobIndexController {
 		req.put("ip", request.getLocalAddr());
 		JSONArray entity = new JSONArray();
 		entity = entityService.testtoString();
-		menuService.selectList(123);
+
 		System.out.println(req + "sql Success!");
 		// System.out.println(entity.toString());
 		PrintWriter pw = response.getWriter();
@@ -134,5 +133,9 @@ public class JobIndexController {
 					// return sb.toString();
 					System.out.println(sb.toString());
 	}
-
+	@RequestMapping("/test")
+	public void testConn(HttpServletRequest rq,HttpServletResponse rp){
+		rp.setHeader("content-type", "text/html;charset=UTF-8");
+		System.out.println("test conn");
+	}
 }

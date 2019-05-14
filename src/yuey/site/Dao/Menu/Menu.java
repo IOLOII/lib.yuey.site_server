@@ -1,8 +1,8 @@
-package yuey.site.Dao;
+package yuey.site.Dao.Menu;
 
 public class Menu {
 	String catalago;
-	int level;
+	String level;
 	String icon;
 	public String getCatalago() {
 		return catalago;
@@ -10,11 +10,11 @@ public class Menu {
 	public void setCatalago(String catalago) {
 		this.catalago = catalago;
 	}
-	public int getLevel() {
+	public String getLevel() {
 		return level;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+	public void setLevel(String string) {
+		this.level = string;
 	}
 	public String getIcon() {
 		return icon;

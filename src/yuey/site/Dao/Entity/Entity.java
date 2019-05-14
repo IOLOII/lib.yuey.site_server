@@ -1,4 +1,4 @@
-package yuey.site.Dao;
+package yuey.site.Dao.Entity;
 
 public class Entity {
 	String pubUnit;

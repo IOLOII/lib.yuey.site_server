@@ -19,11 +19,11 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<!-- -->
-	<bean id="entityDao" class="yuey.site.Dao.EntityDaoImpl">
+	<bean id="entityDao" class="yuey.site.Dao.Entity.EntityDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
 
-	<bean id="menuDao" class="yuey.site.Dao.MenuDaoImpl">
+	<bean id="menuDao" class="yuey.site.Dao.Menu.MenuDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
 </beans>
