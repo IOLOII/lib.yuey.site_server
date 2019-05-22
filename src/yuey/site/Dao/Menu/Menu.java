@@ -4,6 +4,13 @@ public class Menu {
 	String catalago;
 	String level;
 	String icon;
+	String url;
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public String getCatalago() {
 		return catalago;
 	}

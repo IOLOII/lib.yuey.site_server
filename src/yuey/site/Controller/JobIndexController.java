@@ -59,6 +59,7 @@ public class JobIndexController {
 		// OutputStream outputStream = response.getOutputStream();
 		// response.setHeader("content-type", "text/html;charset=UTF-8");
 		pw.write(entity.toString());
+//		pw.write(entity);
 		// return entity;
 	}
 	/**
@@ -134,8 +135,18 @@ public class JobIndexController {
 					System.out.println(sb.toString());
 	}
 	@RequestMapping("/test")
-	public void testConn(HttpServletRequest rq,HttpServletResponse rp){
+	public void testConn(HttpServletRequest rq,HttpServletResponse rp) throws IOException{
 		rp.setHeader("content-type", "text/html;charset=UTF-8");
-		System.out.println("test conn");
+//		PrintWriter pw = rp.getWriter();
+//		pw.write("test conn");
+//		test(rp);
+		TestConn.test(rp);
+//		Test t = new Test();
+//		t.test2(rp);
+		
 	}
+//	static void test(HttpServletResponse rp) throws IOException{
+//		PrintWriter pw = rp.getWriter();
+//		pw.write("test conn");
+//	}
 }

@@ -1,5 +1,5 @@
 package yuey.site.Service.Menu;
-
+import org.json.JSONArray;
 public interface MenuService {
-	void selectList(String level);
+	JSONArray selectList(String level);
 }

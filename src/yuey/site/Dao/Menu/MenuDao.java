@@ -1,5 +1,7 @@
 package yuey.site.Dao.Menu;
 
+import org.json.JSONArray;
+
 public interface MenuDao {
-	void selectList(String level);
+	JSONArray selectList(String level);
 }
