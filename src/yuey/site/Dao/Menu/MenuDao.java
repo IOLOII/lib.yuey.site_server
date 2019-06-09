@@ -1,4 +1,4 @@
-package yuey.site.Dao.Menu;
+package yuey.site.Dao.menu;
 
 import org.json.JSONArray;
 

@@ -1,4 +1,4 @@
-package yuey.site.Service.Entity;
+package yuey.site.Service.entity;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import yuey.site.Dao.Entity.Entity;
-import yuey.site.Dao.Entity.EntityDao;
+import yuey.site.Dao.entity.Entity;
+import yuey.site.Dao.entity.EntityDao;
 
 @Service("entityService")
 public class EntityServiceImpl  implements EntityService {

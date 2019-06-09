@@ -1,9 +1,10 @@
-package yuey.site.Service.Menu;
+package yuey.site.Service.menu;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import yuey.site.Dao.Menu.MenuDao;
+import yuey.site.Dao.menu.MenuDao;
+
 import org.json.JSONArray;
 @Service("menuService")
 public class MenuServiceImpl implements MenuService{

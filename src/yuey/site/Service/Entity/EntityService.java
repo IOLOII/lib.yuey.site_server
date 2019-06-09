@@ -1,10 +1,10 @@
-package yuey.site.Service.Entity;
+package yuey.site.Service.entity;
 
 import java.util.List;
 
 import org.json.JSONArray;
 
-import yuey.site.Dao.Entity.Entity;
+import yuey.site.Dao.entity.Entity;
 
 public interface EntityService {
 	JSONArray testtoString();

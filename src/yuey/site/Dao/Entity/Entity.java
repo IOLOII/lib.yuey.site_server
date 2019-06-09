@@ -1,6 +1,9 @@
-package yuey.site.Dao.Entity;
+package yuey.site.Dao.entity;
 
 public class Entity {
+	/**
+	 * 兼职实体
+	 */
 	String pubUnit;
 	String pubTime;
 	String pubContent;

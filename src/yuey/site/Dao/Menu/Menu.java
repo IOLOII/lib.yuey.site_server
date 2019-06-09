@@ -1,4 +1,4 @@
-package yuey.site.Dao.Menu;
+package yuey.site.Dao.menu;
 
 public class Menu {
 	String catalago;

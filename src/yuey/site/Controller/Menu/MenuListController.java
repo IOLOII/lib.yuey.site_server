@@ -1,4 +1,4 @@
- package yuey.site.Controller.Menu;
+ package yuey.site.Controller.menu;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +19,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import yuey.site.Service.Menu.MenuServiceImpl;
+import yuey.site.Service.menu.MenuServiceImpl;
 
 @Controller
 public class MenuListController {

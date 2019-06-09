@@ -1,4 +1,4 @@
-package yuey.site.Dao.Entity;
+package yuey.site.Dao.entity;
 
 import java.util.List;
 

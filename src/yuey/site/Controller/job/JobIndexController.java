@@ -1,4 +1,4 @@
-package yuey.site.Controller;
+package yuey.site.Controller.job;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,10 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import yuey.site.Dao.Entity.Entity;
-import yuey.site.Service.Entity.EntityService;
-import yuey.site.Service.Menu.MenuService;
-import yuey.site.Service.Menu.MenuServiceImpl;
+import yuey.site.Controller.TestConn;
+import yuey.site.Dao.entity.Entity;
+import yuey.site.Service.entity.EntityService;
+import yuey.site.Service.menu.MenuService;
+import yuey.site.Service.menu.MenuServiceImpl;
 
 @Controller
 // @RequestMapping("getC")
