@@ -89,7 +89,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao{
 //		}	
 	}
 //	@Test
-	public JSONObject testsql(int id, String paw) {
+	public JSONArray testsql(int id, String paw) {
 //		Boolean bl = 	this.login(1203210105,"123456");
 //		System.out.println(bl.toString());
 		
@@ -106,10 +106,11 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao{
 			User user = this.getJdbcTemplate().queryForObject(sql, new Object[] {id}, new UserRowMapper());
 			return user.toString(login);
 		}else{
-//			JSONArray jsonArr = new JSONArray();
+			JSONArray jsonArr = new JSONArray();
 			JSONObject jsonObj = new JSONObject();
 			jsonObj.put("login", login);
-			return jsonObj;//返回jsonOBject对象
+//			return jsonObj;//返回jsonOBject对象
+			return jsonArr;
 		}
 		
 	}

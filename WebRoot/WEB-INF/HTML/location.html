@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-		<title>地图初始IP城市定位</title>
+		<title>西区5B与篮球场的打卡范围</title>
 		<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
 		<style type="text/css">
 			html,
@@ -22,11 +22,12 @@
 
 	<body>
 		<div id="container"></div>
+		<!-- 
 		<div class="info">
 			<p>在初始化地图时，如果center属性缺省，地图默认定位到用户所在城市的中心</p>
 			<hr>
 			<p id='adcode'></p>
-		</div>
+		</div> -->
 		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=70a9225377e55dde5f30925aa2dc59f1"></script>
 		<script type="text/javascript">
 			//初始化地图时，若center属性缺省，地图默认定位到用户所在城市的中心
@@ -37,8 +38,8 @@
 				zoom: 18,
 				resizeEnable: true
 			});
-			document.getElementById('adcode').innerHTML = '当前城市adcode：' + map.getAdcode() + '<br>' +
-				'当前中心点：' + map.getCenter()
+			//document.getElementById('adcode').innerHTML = '当前城市adcode：' + map.getAdcode() + '<br>' +
+			//	'当前中心点：' + map.getCenter()
 
 			var path = [
 				[113.304408, 22.906264],

@@ -6,5 +6,5 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public interface UserService {
-	JSONObject login(int id,String paw);
+	JSONArray login(int id,String paw);
 }

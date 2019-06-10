@@ -12,6 +12,6 @@ public interface UserDao {
 	Map<String,String> loginStatus();
 	
 	Boolean login(int id,String paw);//登录
-	JSONObject testsql(int id, String paw);
+	JSONArray testsql(int id, String paw);
 }
  

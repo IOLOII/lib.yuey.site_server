@@ -135,17 +135,6 @@ public class JobIndexController {
 					// return sb.toString();
 					System.out.println(sb.toString());
 	}
-	@RequestMapping("/test")
-	public void testConn(HttpServletRequest rq,HttpServletResponse rp) throws IOException{
-		rp.setHeader("content-type", "text/html;charset=UTF-8");
-//		PrintWriter pw = rp.getWriter();
-//		pw.write("test conn");
-//		test(rp);
-		TestConn.test(rp);
-//		Test t = new Test();
-//		t.test2(rp);
-		
-	}
 //	static void test(HttpServletResponse rp) throws IOException{
 //		PrintWriter pw = rp.getWriter();
 //		pw.write("test conn");

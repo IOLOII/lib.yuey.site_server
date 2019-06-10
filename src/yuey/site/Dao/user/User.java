@@ -64,8 +64,8 @@ public class User {
 
 
 	
-	public JSONObject toString(Boolean loginTF) {
-//		JSONArray jsonArr = new JSONArray();
+	public JSONArray toString(Boolean loginTF) {
+		JSONArray jsonArr = new JSONArray();
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("login", loginTF);
 		jsonObj.put("user_id", user_id);
@@ -73,8 +73,14 @@ public class User {
 		jsonObj.put("user_institute", user_institute);
 		jsonObj.put("user_class", user_class);
 		jsonObj.put("user_grade", user_grade);
-//		jsonArr.add(jsonObj);
-		return jsonObj;
+		jsonArr.add(jsonObj);
+		/*
+		System.out.println("这里是User的toString():JSONObject ："+"\n"+jsonObj);
+		{"login":true,"user_id":"user_id","user_name":"user_name","user_institute":"user_institute","user_class":"user_class","user_grade":"user_grade"}
+		System.out.println("这里是User的toString():JSONArray ："+"\n"+jsonArr);
+		[{"login":true,"user_id":123,"user_name":"yueytest","user_institute":"信工","user_class":"16富媒体","user_grade":2016}]
+		*/
+		return jsonArr;
 //		return loginTF+"; "+"UserInfo [user_id=" + user_id + "，user_name=" + user_name +"，user_institute="+user_institute+
 //"，user_class="+user_class+"，user_grade="+user_grade+"]";
 	}

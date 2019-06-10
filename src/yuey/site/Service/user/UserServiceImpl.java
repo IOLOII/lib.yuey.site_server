@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public JSONObject login(int id, String paw) {
+	public JSONArray login(int id, String paw) {
 		// TODO Auto-generated method stub
 		return userDao.testsql(id, paw);
 	}
