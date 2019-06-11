@@ -77,6 +77,8 @@ public class User {
 		/*
 		System.out.println("这里是User的toString():JSONObject ："+"\n"+jsonObj);
 		{"login":true,"user_id":"user_id","user_name":"user_name","user_institute":"user_institute","user_class":"user_class","user_grade":"user_grade"}
+		
+		目前用的是这个
 		System.out.println("这里是User的toString():JSONArray ："+"\n"+jsonArr);
 		[{"login":true,"user_id":123,"user_name":"yueytest","user_institute":"信工","user_class":"16富媒体","user_grade":2016}]
 		*/

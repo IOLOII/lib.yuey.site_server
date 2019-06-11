@@ -9,11 +9,13 @@ import java.text.Format;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.text.resources.FormatData;
 
 import yuey.servlet.OpenidSessionkeyServlet;
+import yuey.site.Controller.testController;
 import yuey.site.Dao.user.User;
 import yuey.site.Service.user.UserService;
 
@@ -137,21 +140,111 @@ public class LoginController {
 //		System.out.println(user_id);
 //		System.out.println(user_password);
 		response.setContentType("application/json;charset=UTF-8");
-		String suserLogin = user_id+user_password;
-		System.out.println(suserLogin);
+		
+//		System.out.println(suserLogin);
 //		symbol_split.isStr(suserLogin,"'");
-		JSONObject userLogin = JSONObject.fromObject(suserLogin);
-		System.out.println(userLogin);
-		System.out.println("用户访问："+userLogin.get("user_id"));
+		
+//		System.out.println(userLogin);
+		
 //		System.out.println("用户密码："+userLogin.get("user_password"));
+
+//		System.out.println("得到的值:"+id+","+paw);
+		
+//		System.out.println("用户密码："+userLogin.getJSONObject("user_password"));
+//		System.out.println();
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				
+				String cookieName = cookie.getName();
+				
+				String cookieValue = cookie.getValue();
+				if(cookieName == "cookie_na"){
+					out.write("已登录用户:"+cookieValue+"访问");
+				}
+				cookieValue = URLDecoder.decode(cookieValue);
+				System.out.println("cookieName:" + cookieName+";" + "cookieValue:" + cookieValue);
+			}
+		}else{
+//		cookie为空的话应该为长时间未登录过期或者，首次登录，那么直接拿到账号密码进行登录。
+//			跳转登录界面
+		}
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(60);
+		JSONArray userArr = null;
+		
+		if (session.isNew()) {
+			String suserLogin = user_id+user_password;
+			JSONObject userLogin = JSONObject.fromObject(suserLogin);
+			String sid = (String) userLogin.get("user_id");
+			int id = Integer.parseInt(sid);
+			String paw = (String) userLogin.get("user_password");
+			
+			userArr = userService.login(id, paw);
+			JSONObject userObj =userArr.getJSONObject(0);
+			String user_na = (String) userObj.get("user_name");
+//			String user_id =  (String) userObj.get("user_id"); user_id 传入的值有
+			Cookie cookie_na = new Cookie("user_name", user_na);
+			cookie_na.setMaxAge(60);
+			Cookie cookie_id = new Cookie("user_id", user_id);
+			cookie_id.setMaxAge(60);
+			response.addCookie(cookie_na);
+			response.addCookie(cookie_id);
+			System.out.println("新用户访问："+userLogin.get("user_id"));
+		} else {
+//			out.write("已登录用户:"+cookie_na.getValue()+"访问");
+//			跳转登录界面
+			testController.testConn2(request, response);
+		}
+	}
+	@RequestMapping(value = "/wxLogin3")//微信小程序端登录 	, method = RequestMethod.POST
+	 @ResponseBody 
+	public void wxLogin3(HttpServletRequest request, HttpServletResponse response,@RequestBody String user_id,@RequestBody String user_password) throws IOException{
+		PrintWriter out = response.getWriter();
+		
+		/**
+		 * 小程序端请求参数
+		 *  data: {
+			     user: {
+			      user_id: "123",
+			      user_password: "456"
+			    }
+		  	}
+		 *	method:POST
+		 * return：[{"login":true,"user_id":123,"user_name":"yueytest","user_institute":"信工","user_class":"16富媒体","user_grade":2016}]
+		 */
+		/*
+		String suserLogin = user_id+user_password;
+		JSONObject userLogin = JSONObject.fromObject(suserLogin);
 		String sid = (String) userLogin.get("user_id");
 		int id = Integer.parseInt(sid);
 		String paw = (String) userLogin.get("user_password");
-//		System.out.println("得到的值:"+id+","+paw);
-		userService.login(id, paw);
-//		System.out.println("用户密码："+userLogin.getJSONObject("user_password"));
-//		System.out.println();
-		out.write(userService.login(id, paw).toString());
+		JSONArray userArr = userService.login(id, paw);
+		JSONObject userObj =userArr.getJSONObject(0);
+		String user_na = (String) userObj.get("user_name");
+		System.out.println(userArr);
+		out.write(userArr.toString());*/
+		
+		String suserLogin = user_id+user_password;
+		JSONObject userLogin = JSONObject.fromObject(suserLogin);
+		String sid = (String) userLogin.get("user_id");
+		int id = Integer.parseInt(sid);
+		String paw = (String) userLogin.get("user_password");
+		
+		JSONArray userArr = userService.login(id, paw);
+		JSONObject userObj = userArr.getJSONObject(0);
+		// System.out.println(userObj.toString());
+		boolean loginStatu = userObj.getBoolean("login");
+		if (loginStatu) {
+			Cookie cookie_id = new Cookie("user_id",userObj.getString("user_id"));
+			// Cookie cookie_na = new Cookie("user_id",
+			// userObj.getString("user_id"));
+			Cookie cookie_na = new Cookie("user_name",userObj.getString("user_name"));
+			cookie_id.setMaxAge(30 * 60 * 60);
+			cookie_na.setMaxAge(30 * 60 * 60);
+			response.addCookie(cookie_id); // add 只能传 cookie
+			response.addCookie(cookie_na);
+			out.write(userArr.toString());
+		}
 	}
-
 }

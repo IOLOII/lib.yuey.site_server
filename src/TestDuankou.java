@@ -4,7 +4,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import yuey.isHostConnectable;
 
 
-public class TestConn {
+public class TestDuankou {
 //	@TestExecutionListeners
 	@Test
 	public void test() {
