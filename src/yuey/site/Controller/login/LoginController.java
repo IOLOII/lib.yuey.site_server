@@ -2,6 +2,7 @@ package yuey.site.Controller.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -31,7 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.text.resources.FormatData;
 
 import yuey.servlet.OpenidSessionkeyServlet;
-import yuey.site.Controller.testController;
+import yuey.site.Controller.testController_cookie;
 import yuey.site.Dao.user.User;
 import yuey.site.Service.user.UserService;
 
@@ -194,12 +195,13 @@ public class LoginController {
 		} else {
 //			out.write("已登录用户:"+cookie_na.getValue()+"访问");
 //			跳转登录界面
-			testController.testConn2(request, response);
+			testController_cookie.testConn2(request, response);
 		}
 	}
+	User user = new User();
 	@RequestMapping(value = "/wxLogin3")//微信小程序端登录 	, method = RequestMethod.POST
-	 @ResponseBody 
-	public void wxLogin3(HttpServletRequest request, HttpServletResponse response,@RequestBody String user_id,@RequestBody String user_password) throws IOException{
+//	@ResponseBody 
+	public void wxLogin3(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
 		
 		/**
@@ -225,26 +227,50 @@ public class LoginController {
 		System.out.println(userArr);
 		out.write(userArr.toString());*/
 		
-		String suserLogin = user_id+user_password;
+//		String suserLogin = request.getParameter("user_id")+request.getParameter("user_password");
+		String sid =request.getParameter("user_id");
+				String paw =request.getParameter("user_password");
+				System.out.println(sid+paw);
+				int id = Integer.parseInt(sid);
+		/*String suserLogin = user_id+user_password;
+		System.out.println(suserLogin);
 		JSONObject userLogin = JSONObject.fromObject(suserLogin);
 		String sid = (String) userLogin.get("user_id");
 		int id = Integer.parseInt(sid);
-		String paw = (String) userLogin.get("user_password");
+		String paw = (String) userLogin.get("user_password");*/
 		
 		JSONArray userArr = userService.login(id, paw);
 		JSONObject userObj = userArr.getJSONObject(0);
 		// System.out.println(userObj.toString());
 		boolean loginStatu = userObj.getBoolean("login");
 		if (loginStatu) {
-			Cookie cookie_id = new Cookie("user_id",userObj.getString("user_id"));
 			// Cookie cookie_na = new Cookie("user_id",
-			// userObj.getString("user_id"));
+						// userObj.getString("user_id"));
+			
+//			Cookie cookie_id = new Cookie("user_id",userObj.getString("user_id"));
+//			Cookie cookie_na = new Cookie("user_name",userObj.getString("user_name"));
+
+			Cookie cookie_id = new Cookie("user_id",sid);
 			Cookie cookie_na = new Cookie("user_name",userObj.getString("user_name"));
+			
 			cookie_id.setMaxAge(30 * 60 * 60);
 			cookie_na.setMaxAge(30 * 60 * 60);
 			response.addCookie(cookie_id); // add 只能传 cookie
 			response.addCookie(cookie_na);
 			out.write(userArr.toString());
+			System.out.println("返回值："+userArr.toString());
+			System.out.println("返回值："+userArr);
 		}
+	}
+	@RequestMapping("/wxlogin4")
+	public void wxlogin4(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		String sid =request.getParameter("user_id");
+		int id =Integer.parseInt(sid); 
+		String paw =request.getParameter("user_password");
+		JSONArray userArr = userService.login(id, paw);
+		PrintWriter out = response.getWriter();
+		out.write(userArr.toString());
 	}
 }

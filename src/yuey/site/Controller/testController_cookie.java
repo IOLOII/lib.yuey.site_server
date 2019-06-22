@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import yuey.site.Service.user.UserService;
 
 @Controller
-public class testController {
+public class testController_cookie {
 	@Autowired
 	UserService userService;
 
