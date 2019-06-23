@@ -3,12 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<display-name>yueysite</display-name>
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+ 
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 
+	<!-- 加载spring容器 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
@@ -30,21 +30,16 @@
 		<!-- Servlet容器启动的时候就进行初始化 -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!-- <servlet> <servlet-name>OpenidSessionkeyServlet</servlet-name> <servlet-class>yuey.servlet.OpenidSessionkeyServlet</servlet-class> 
-		<load-on-startup>1</load-on-startup> </servlet> -->
-	<servlet>
-		<description>Login controller test cookie</description>
-		<display-name>Login controller test	cookie</display-name>
-		<servlet-name>DoLoginServlet</servlet-name>
-		<servlet-class>yuey.servlet.DoLoginServlet</servlet-class>
-	</servlet>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<!-- 请求的入口，所有请求都会经过DispatcherServlet处理 -->
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
-	<!-- <servlet-mapping> <servlet-name>OpenidSessionkeyServlet</servlet-name> 
-		<url-pattern>/servlet/OpenidSessionkeyServlet</url-pattern> </servlet-mapping> -->
+	
+	<servlet>
+		<servlet-name>DoLoginServlet</servlet-name>
+		<servlet-class>yuey.servlet.DoLoginServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>DoLoginServlet</servlet-name>
 		<url-pattern>/servlet/DoLoginServlet</url-pattern>

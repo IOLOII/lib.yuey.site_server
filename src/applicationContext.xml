@@ -6,9 +6,8 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:property-placeholder location="classpath:jdbc.properties" />
-	<!-- 扫描相应的包 -->
+	 <!-- 扫描相应的包 -->
 	<context:component-scan base-package="yuey.site.*" />
-
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}"></property>
 		<property name="jdbcUrl" value="${jdbc.url}"></property>
@@ -18,7 +17,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	<!-- -->
 	<bean id="entityDao" class="yuey.site.Dao.entity.EntityDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
@@ -26,9 +24,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="menuDao" class="yuey.site.Dao.menu.MenuDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
-	
-		<bean id="userDao" class="yuey.site.Dao.user.UserDaoImpl">
+
+	<bean id="userDao" class="yuey.site.Dao.user.UserDaoImpl">
 		<!--注入jdbcTemplate -->
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
-	</bean>	
+	</bean>
 </beans>
