@@ -46,7 +46,7 @@ public class MenuListController {
 	
 	@RequestMapping("/testPage")
 	public String testPage(HttpServletRequest req,HttpServletResponse rsp){
-		return "small";
+		return "testPage";
 	}
 	@RequestMapping("/testPage2")
 	public String testPage2(HttpServletRequest req,HttpServletResponse rsp){

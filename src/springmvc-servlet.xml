@@ -13,7 +13,7 @@
     <mvc:default-servlet-handler /> 
     <!-- if you use annotation you must configure following setting -->
     <mvc:annotation-driven />     
-
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
     <!-- configure the InternalResourceViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
             id="internalResourceViewResolver">
