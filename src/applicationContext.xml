@@ -7,7 +7,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<context:property-placeholder location="classpath:jdbc.properties" />
 	 <!-- 扫描相应的包 -->
-	<context:component-scan base-package="yuey.site.*" />
+	<context:component-scan base-package="yuey.site.Dao.*" />
+	<context:component-scan base-package="yuey.site.Service.*" />
+	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}"></property>
 		<property name="jdbcUrl" value="${jdbc.url}"></property>

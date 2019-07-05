@@ -33,12 +33,16 @@ public class MenuDaoImpl extends JdbcDaoSupport implements MenuDao{
 	public JSONArray selectList(String level) {
 		// TODO Auto-generated method stub
 //		String sql = "SELECT * FROM Catalago order by 'level'  DESC ";
-		String sql = "SELECT * FROM Catalago where level = ? ";
+		String sql = "SELECT * FROM catalago where level = ? ";
 //		List<Menu> menus = (List<Menu>) this.getJdbcTemplate().queryForObject(sql, new Object[]{level}, new menuListRowmapper());
 //		Menu menus2 =(Menu)
 //				this.getJdbcTemplate().queryForObject(sql,new menuListRowmapper(), level);
 		List<Menu> menus = this.getJdbcTemplate().query(sql,new Object[] {level},new MenuListRowmapper());
 		JSONArray json = new JSONArray();
+			//防止前端请求错误无限wxfor
+			JSONObject ijo2 = new JSONObject();
+			ijo2.put("statu", true);
+			json.put(ijo2);
 		for (Menu me : menus) {
 			JSONObject ijo = new JSONObject();
 			ijo.put("catalago", me.getCatalago());
