@@ -29,7 +29,11 @@ import yuey.site.Dao.entity.Entity;
 import yuey.site.Service.entity.EntityService;
 import yuey.site.Service.menu.MenuService;
 import yuey.site.Service.menu.MenuServiceImpl;
-
+/**
+ * 兼职发布功能controller
+ * @author yuey
+ *
+ */
 @Controller
 // @RequestMapping("getC")
 public class JobIndexController {
@@ -38,9 +42,9 @@ public class JobIndexController {
 
 	/**
 	 * 获取兼职信息条目
-	 * @param request	getC.site
-	 * @param response	entity实例
-	 * @throws IOException
+	 * param request	getC.site
+	 * param response	entity实例
+	 * 
 	 */
 	@RequestMapping("/getC")
 	public void getConn(HttpServletRequest request, HttpServletResponse response)
@@ -65,9 +69,9 @@ public class JobIndexController {
 	}
 	/**
 	 * 增加兼职 5_14
-	 * @param request	pubUnit,pubContent,salary,pubTime,timeLiness
-	 * @param response
-	 * @throws IOException
+	 * param request	pubUnit,pubContent,salary,pubTime,timeLiness
+	 * param response
+	 * 
 	 */
 	@RequestMapping(value = "/addJob")
 	public void addJobLIst2(HttpServletRequest request,

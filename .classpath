@@ -33,6 +33,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/org-json.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/servlet-api.tomcat 9.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/fastjson-1.2.58.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

@@ -19,22 +19,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   padding:0;
   }
     .ignitionText {
-    position: fixed;
-    top: 38%;
+   position: fixed;
+    margin-top: 7%;
     width:100%;
+      font-weight:1000;
 		animation: move 2s linear infinite;
-		background-image: linear-gradient(to right, #fe8a71, #f6cd61, #3da4ab, #0e9aa7, #fe8a71);
+		/*background-image: linear-gradient(to right, #fe8a71, #f6cd61, #3da4ab, #0e9aa7, #fe8a71);*/
 		background-size: 200% auto;
-		font-size: 60px;
+		font-size: 82px;
 		letter-spacing: 1px;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		text-align: center;
-	}
-	.ignitionText2 {
-	position: fixed;
-    top: 43.5%;
+      background-color: wheat;
+	}    
+        .ignitionText3 {
+   position: fixed;
+    /* margin-top:15%;*/
     width:100%;
+      font-weight:1000;
+		animation: move 2s linear infinite;
+		/*background-image: linear-gradient(to right, #fe8a71, #f6cd61, #3da4ab, #0e9aa7, #fe8a71);*/
+		background-size: 200% auto;
+		font-size: 42px;
+		letter-spacing: 1px;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-align: right;
+      background-color: wheat;
+	}    
+	.ignitionText2 {
+	/*position: fixed;
+    top: 43.5%;*/
+      margin-top:-45px;
+    	width:100%;
+      	       height: 98%;
 		animation: move 2s linear infinite;
 		background-image: linear-gradient(to right, #fe8a71, #f6cd61, #3da4ab, #0e9aa7, #fe8a71);
 		background-size: 200% auto;
@@ -51,12 +70,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </style>
   </head>
   <body style="background-color:#000;">
-        	<div class="ignitionText">
-          		yuey.site		  
+		    <div>
+        	<div class="ignitionText2">                      	<div class="ignitionText">
+          		☞&nbsp;lib.yuey.site		  
 			</div>
-		    	<div>
-        	<div class="ignitionText2">
         	&nbsp;
+			</div>
+                      	<div class="ignitionText3">
+          		yuey&nbsp;		  
 			</div>
 		</div>
   </body>

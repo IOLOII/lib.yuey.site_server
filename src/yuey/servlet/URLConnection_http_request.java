@@ -40,7 +40,7 @@ public class URLConnection_http_request {
 //		System.out.println("in readLine:" + in.readLine() + "\n");
 		/*readLine()对数据不能读取多次，程序中每运行一次就是读取一行*/
 		result = in.readLine();
-		System.out.println("result:" + result + "\n");
+//		System.out.println("result:" + result + "\n");
 		in.close();
 		return result;
 	}

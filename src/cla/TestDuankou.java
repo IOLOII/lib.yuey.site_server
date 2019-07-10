@@ -1,7 +1,8 @@
+package cla;
 import org.junit.Test;
-import org.springframework.test.context.TestExecutionListeners;
+//import org.springframework.test.context.TestExecutionListeners;
 
-import yuey.isHostConnectable;
+//import yuey.isHostConnectable;
 
 
 public class TestDuankou {

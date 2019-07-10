@@ -20,7 +20,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import yuey.site.Service.menu.MenuServiceImpl;
-
+/**
+ * function	menu(小程序功能列表)
+ * param	level
+ * @author yuey
+ *
+ */
 @Controller
 public class MenuListController {
 	@Autowired

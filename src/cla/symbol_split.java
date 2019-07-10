@@ -1,3 +1,4 @@
+package cla;
 
 import java.util.Scanner;
 

@@ -35,7 +35,12 @@ import yuey.servlet.OpenidSessionkeyServlet;
 import yuey.site.Controller.testController_cookie;
 import yuey.site.Dao.user.User;
 import yuey.site.Service.user.UserService;
-
+/**
+ * function	wxlogin4(微信小程序登录接口)
+ * param	user_id,user_password
+ * @author yuey
+ *
+ */
 @Controller
 public class LoginController {
 	@Autowired
