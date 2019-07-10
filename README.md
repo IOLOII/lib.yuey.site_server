@@ -1,1 +1,1 @@
-# 👉https://github.com/viphuyy/lib.yuey.site#yuey 👈
+# 👉https://github.com/viphuyy/lib.yuey.site# 👈
